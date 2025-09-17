@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductsService } from './products.service';
 import { Product } from './product.model';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
-  imports : [CommonModule]
+  imports : [ CommonModule ]
 })
 
 export class ProductComponent {

@@ -14,27 +14,27 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'Angular';
 
-    productList : Product[] = []
-    constructor(private productService: ProductsService) { }
-    ngOnInit() {
-      this.getProducts()
-    }
+  productList: Product[] = []
+  constructor(private productService: ProductsService) { }
+  ngOnInit() {
+    this.getProducts()
+  }
   isGridView: boolean = true; // default view
 
-     toggleView() {
-      this.isGridView = !this.isGridView;
-    }
+  toggleView() {
+    this.isGridView = !this.isGridView;
+  }
 
-    getProducts() {
-    this.productService.getProducts().subscribe(
+  getProducts() {
+    this.productService.getAPIProducts().subscribe(
       ((res: Product[]) => {
-        if(res){
-            this.productList = res;
-            console.log(res);
+        if (res) {
+          this.productList = res;
+          console.log(res);
         }
       }),
       err => { }
     )
   }
-  
+
 }
