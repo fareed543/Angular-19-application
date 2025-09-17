@@ -26,15 +26,19 @@ export class AppComponent {
   }
 
   getProducts() {
-    this.productService.getAPIProducts().subscribe(
-      ((res: Product[]) => {
-        if (res) {
-          this.productList = res;
-          console.log(res);
-        }
-      }),
-      err => { }
-    )
+    this.productService.getProducts().subscribe({
+      next: (res: Product[]) => {
+        this.productList = res;
+        console.log("Products:", res);
+      },
+      error: (err) => {
+        console.log("Error occurred:", err);
+        // here you can show a toast / snackbar / alert
+      },
+      complete: () => {
+        console.log("Request completed.");
+      }
+    });
   }
 
 }
